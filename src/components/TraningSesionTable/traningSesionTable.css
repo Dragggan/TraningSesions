@@ -5,6 +5,14 @@
   height: 100%;
   z-index: -1;
 }
+.headline {
+  text-align: center;
+  padding: 50px 0 20px 0;
+}
+.table_wrapper {
+  display: flex;
+  justify-content: center;
+}
 .training_sessions_table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -19,7 +27,9 @@
 .training_sessions_table thead tr th {
   width: 300px;
 }
-
+.training_sessions_table thead tr th:last-child {
+  width: 100px;
+}
 .training_sessions_table tbody tr {
   text-align: center;
 }
@@ -36,6 +46,7 @@
 .training_sessions_table tbody tr:hover {
   font-weight: bold;
   color: #000000;
+  font-size: 18px;
 }
 .type {
   font-weight: 700;

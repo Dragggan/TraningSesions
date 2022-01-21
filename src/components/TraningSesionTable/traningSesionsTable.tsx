@@ -47,34 +47,36 @@ export const TraningSesionsTable: FC = () => {
         return (
             <>
                 <img className='backgroundImage' src={grassBackground} alt='Backgroud' />
-                <h1>Training sessions</h1>
-                <table className="training_sessions_table">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Duration</th>
-                            <th>Rest Level</th>
-                            <th>intensity Level</th>
-                            <th>Favorite</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {sesions.map(row => {
-                            return (
-                                <tr key={row.id} className={dynamicClassType(row.type)} >
-                                    <td className='type'>{row.type}</td>
-                                    <td>{row.duration}</td>
-                                    <td>{row.restLevel}</td>
-                                    <td>{row.type === 'training' ? row.intensityLevel : 'no data'}</td>
-                                    <td onClick={() => changeFavorites(row.id)}>
-                                        {row.favorite
-                                            ? <img src={heart} className='favorite' alt='like' /> : ''}
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <h1 className='headline'> Training sessions</h1>
+                <div className="table_wrapper">
+                    <table className="training_sessions_table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Duration</th>
+                                <th>Rest Level</th>
+                                <th>intensity Level</th>
+                                <th>Favorite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {sesions.map(row => {
+                                return (
+                                    <tr key={row.id} className={dynamicClassType(row.type)} >
+                                        <td className='type'>{row.type}</td>
+                                        <td>{row.duration}</td>
+                                        <td>{row.restLevel}</td>
+                                        <td>{row.type === 'training' ? row.intensityLevel : 'no data'}</td>
+                                        <td onClick={() => changeFavorites(row.id)}>
+                                            {row.favorite
+                                                ? <img src={heart} className='favorite' alt='like' /> : ''}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </>
         )
     }
