@@ -1,23 +1,32 @@
-.container_wrapper {
+.container_wrapper_green {
   background-color: #365314;
+  height: 16vw;
+}
+.container_wrapper_blue {
+  background-color: #0c4a6e;
   height: 16vw;
 }
 .midle_section {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 5% 0 0 100px;
+  margin: 8% 0 0 120px;
 }
 .details_type {
   text-transform: capitalize;
   color: #a3e635;
+}
+.details_type_recovery {
+  text-transform: capitalize;
+  color: #38bdf8;
 }
 .icon_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.volleyball {
+.volleyball,
+.batterycharging_big {
   width: 12%;
   position: absolute;
   right: -21px;
@@ -29,7 +38,30 @@
   top: 44px;
   cursor: pointer;
 }
+.batery_wrapper {
+  margin-bottom: 20px;
+}
+.speed_wrapper,
+.batery_wrapper {
+  margin-left: 20px;
+}
 .batterycharging {
+  position: relative;
+  top: 4px;
+  width: 1.6em;
+}
+.text {
+  position: relative;
+  top: 4px;
+  width: 1.6em;
+}
+.batery_charger_yellow {
+  position: relative;
+  top: 4px;
+  width: 1.6em;
+  margin-right: 4px;
+}
+.speedometer {
   position: relative;
   top: 4px;
   width: 1.6em;
