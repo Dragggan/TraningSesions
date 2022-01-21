@@ -1,0 +1,40 @@
+.backgroundImage {
+  position: absolute;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.training_sessions_table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 400px;
+  box-shadow: 16px -16px 20px 6px rgb(0 0 0 / 15%);
+  color: rgba(255, 255, 255, 0.877);
+}
+.training_sessions_table thead tr {
+  background-color: #297300;
+  color: #ffffff;
+}
+.training_sessions_table thead tr th {
+  width: 300px;
+}
+
+.training_sessions_table tbody tr {
+  text-align: center;
+}
+.training_sessions_table tbody tr td {
+  cursor: pointer !important;
+}
+.training_sessions_table th,
+.training_sessions_table td {
+  padding: 12px 15px;
+}
+.training_sessions_table tbody tr:last-of-type {
+  border-bottom: 2px solid #297300;
+}
+.training_sessions_table tbody tr:hover {
+  font-weight: bold;
+  color: #000000;
+}
