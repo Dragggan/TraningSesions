@@ -12,6 +12,8 @@
 .table_wrapper {
   display: flex;
   justify-content: center;
+  height: 800px;
+  overflow: auto;
 }
 .training_sessions_table {
   border-collapse: collapse;
@@ -33,7 +35,7 @@
 .training_sessions_table tbody tr {
   text-align: center;
 }
-.training_sessions_table tbody tr td {
+.training_sessions_table tbody tr td:first-child {
   cursor: pointer !important;
 }
 .training_sessions_table th,

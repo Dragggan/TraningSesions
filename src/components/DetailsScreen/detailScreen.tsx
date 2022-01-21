@@ -1,4 +1,4 @@
-import React, { FC, } from 'react'
+import { FC, } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import './detailScreen.css'
 import volleyball from '../../icons/volleyball.svg'
@@ -11,7 +11,6 @@ import text from '../../icons/text.svg'
 import topfit from '../../icons/topfit.svg'
 import speedometer from '../../icons/speedometer.svg'
 import intense from '../../icons/intense.svg'
-
 interface CustomizedState {
     id: string
     date: string
@@ -19,10 +18,9 @@ interface CustomizedState {
     duration: number
     endTime: string
     favorite: false
-    restLevel: 1
+    restLevel: number
     startTime: string
     type: string
-
 }
 
 export const DetailsScreen: FC = () => {
@@ -35,6 +33,8 @@ export const DetailsScreen: FC = () => {
     const dynamic_class_type = () => {
         return type === 'training' ? 'details_type' : "details_type_recovery"
     }
+    // first "green" session complete, no more time....
+    // todo finish "blue one"....
     return type === 'training' ? (
         <div className="container_wrapper_green">
             <div className="icon_wrapper">
