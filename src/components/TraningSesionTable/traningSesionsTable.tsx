@@ -3,6 +3,8 @@ import { mockApiCallToFetchSessions, Session } from '../../data';
 import './traningSesionTable.css'
 import grassBackground from '../../images/grassbackground.jpg'
 import heart from '../../icons/heart.svg'
+import { Routes, Link, Route, useParams, useNavigate } from "react-router-dom"
+
 
 // tsx
 type SesionType = "training" | "recovery";
@@ -37,6 +39,10 @@ export const TraningSesionsTable: FC = () => {
         setSesions(filteredArray)
     }
 
+    const params = useParams()
+    const navigate = useNavigate()
+
+
     if (!sesions.length) {
         if (!err) {
             return <h1>Loading...</h1>
@@ -62,7 +68,8 @@ export const TraningSesionsTable: FC = () => {
                         <tbody>
                             {sesions.map(row => {
                                 return (
-                                    <tr key={row.id} className={dynamicClassType(row.type)} >
+                                    <tr key={row.id} className={dynamicClassType(row.type)}
+                                        onClick={() => navigate('/detailsscreen', { state: row })}>
                                         <td className='type'>{row.type}</td>
                                         <td>{row.duration}</td>
                                         <td>{row.restLevel}</td>
