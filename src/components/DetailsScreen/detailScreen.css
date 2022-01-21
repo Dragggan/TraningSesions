@@ -18,3 +18,11 @@
   position: absolute;
   top: 44px;
 }
+.batterycharging {
+  position: relative;
+  top: 4px;
+  width: 1.6em;
+}
+.ok {
+  width: 1.4em;
+}
