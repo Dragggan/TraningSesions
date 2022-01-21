@@ -5,7 +5,6 @@
   height: 100%;
   z-index: -1;
 }
-
 .training_sessions_table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -37,4 +36,16 @@
 .training_sessions_table tbody tr:hover {
   font-weight: bold;
   color: #000000;
+}
+.type {
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.traningClass {
+  background-color: #36531485;
+}
+.recoveryClass {
+  background-color: #0c4a6e8a;
 }

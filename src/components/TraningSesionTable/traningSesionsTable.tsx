@@ -3,6 +3,13 @@ import { mockApiCallToFetchSessions, Session } from '../../data';
 import './traningSesionTable.css'
 import grassBackground from '../../images/grassbackground.jpg'
 
+// tsx
+type SesionType = "training" | "recovery";
+
+const dynamicClassType = (value: SesionType): string => {
+    return value === 'training' ? 'traningClass' : 'recoveryClass'
+}
+
 
 export const TraningSesionsTable: FC = () => {
     const [sesions, setSesions] = useState<Session[]>([])
@@ -46,14 +53,12 @@ export const TraningSesionsTable: FC = () => {
                     <tbody>
                         {sesions.map(row => {
                             return (
-                                <tr key={row.id}>
+                                <tr key={row.id} className={dynamicClassType(row.type)} >
                                     <td className='type'>{row.type}</td>
                                     <td>{row.duration}</td>
                                     <td>{row.restLevel}</td>
                                     <td>{row.type === 'training' ? row.intensityLevel : 'no data'}</td>
-
                                 </tr>
-
                             )
                         })}
                     </tbody>
