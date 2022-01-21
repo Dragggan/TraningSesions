@@ -1,3 +1,8 @@
 import React, { FC } from 'react'
+import { TraningSesionsTable } from './components/traningSesionsTable';
 
-export const App: FC = () => <div>Hello World</div>
+export const App: FC = () => <div>
+    <TraningSesionsTable />
+
+
+</div>
