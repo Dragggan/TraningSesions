@@ -15,6 +15,7 @@ interface SessionFields {
   endTime: string // hh:mm
   duration: number // minutes
   restLevel: RestLevel
+  favorite: boolean
 }
 
 export interface TrainingSession extends SessionFields {
@@ -66,6 +67,7 @@ export function mockApiCallToFetchSessions(): Promise<Session[]> {
             duration,
             restLevel: randomInt(1, 3) as RestLevel,
             description: randomItem(RECOVERY_DESCRIPTIONS),
+            favorite: false,
           })
         } else {
           // create training session
@@ -80,6 +82,7 @@ export function mockApiCallToFetchSessions(): Promise<Session[]> {
             restLevel: randomInt(1, 3) as RestLevel,
             intensityLevel,
             load: duration * intensityLevel,
+            favorite: false,
           })
         }
       }

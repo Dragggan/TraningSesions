@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { mockApiCallToFetchSessions, Session } from '../../data';
 import './traningSesionTable.css'
 import grassBackground from '../../images/grassbackground.jpg'
+import heart from '../../icons/heart.svg'
 
 // tsx
 type SesionType = "training" | "recovery";
@@ -9,7 +10,6 @@ type SesionType = "training" | "recovery";
 const dynamicClassType = (value: SesionType): string => {
     return value === 'training' ? 'traningClass' : 'recoveryClass'
 }
-
 
 export const TraningSesionsTable: FC = () => {
     const [sesions, setSesions] = useState<Session[]>([])
@@ -21,12 +21,20 @@ export const TraningSesionsTable: FC = () => {
 
     const asyncMockCallFuntion = () => {
         return mockApiCallToFetchSessions()
-            .then(response => setSesions(response))
-            .catch(err => {
-                console.log('%c  err==> ', 'color:red;font-size:12px;', err);
-                setError(err)
-                throw err;
+            .then(response => {
+                let addedFavorite = response.map(row => ({ ...row, favorite: false }))
+                setSesions(addedFavorite)
             })
+            .catch(err => setError(err))
+    }
+
+    const changeFavorites = (value: number) => {
+        let arrr: Session[] = [...sesions];
+        let filteredArray: Session[] = arrr.filter(({ id }) => id !== value);
+        let filtedElement = arrr.filter(({ id }) => id === value)[0];
+        filtedElement.favorite = !filtedElement.favorite;
+        filteredArray.unshift(filtedElement)
+        setSesions(filteredArray)
     }
 
     if (!sesions.length) {
@@ -58,6 +66,10 @@ export const TraningSesionsTable: FC = () => {
                                     <td>{row.duration}</td>
                                     <td>{row.restLevel}</td>
                                     <td>{row.type === 'training' ? row.intensityLevel : 'no data'}</td>
+                                    <td onClick={() => changeFavorites(row.id)}>
+                                        {row.favorite
+                                            ? <img src={heart} className='favorite' alt='like' /> : ''}
+                                    </td>
                                 </tr>
                             )
                         })}

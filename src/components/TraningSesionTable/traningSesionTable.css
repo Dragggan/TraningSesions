@@ -42,7 +42,10 @@
   text-transform: capitalize;
   font-size: 14px;
 }
-
+.favorite {
+  width: 15px;
+  height: 15px;
+}
 .traningClass {
   background-color: #36531485;
 }
