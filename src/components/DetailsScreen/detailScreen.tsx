@@ -1,5 +1,5 @@
 import React, { FC, } from 'react'
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './detailScreen.css'
 import volleyball from '../../icons/volleyball.svg'
 import chevronleft from '../../icons/chevron-left.svg'
@@ -25,6 +25,8 @@ interface CustomizedState {
 export const DetailsScreen: FC = () => {
     const location = useLocation();
     const state = location.state as CustomizedState;
+    const navigate = useNavigate()
+
     console.log('%c  location.state==> ', 'color:red;font-size:12px;', location.state);
 
     // date: "2022-01-24"
@@ -36,23 +38,29 @@ export const DetailsScreen: FC = () => {
     // restLevel: 1
     // startTime: "19:00"
     // type: "recovery"
+
+
+
     const { type, date, startTime, endTime, duration } = state;
     return type === 'training' ? (
         <div className="container_wrapper">
             <div className="icon_wrapper">
-                <img src={chevronleft} alt="chevronleft" className='chevronleft' />
-                <img src={volleyball} alt="volleyball" className='volleyball' onClick={() => <Link to='/' />} />
+                <img src={chevronleft} alt="chevronleft" className='chevronleft' onClick={() => navigate('/')} />
+                <img src={volleyball} alt="volleyball" className='volleyball' />
             </div>
             {/* headlines..... */}
-            <h3 className='details_type'>{state.type}</h3>
-            <h4>{date}</h4>
-            <span>{startTime}</span>-<span>{endTime}</span>.<span>{duration}</span>
+            <div className='midle_section'>
+                <h1 className='details_type'>{type}</h1>
+                <h2 className='time'>{date}</h2>
+                <div className='time'>
+                    <span >{startTime}</span>-<span>{endTime}</span>&#8226;<span className='duration_time'>{duration.toFixed()}</span></div>
+            </div>
             {/* ---------------------------- */}
             <div>
                 <img src={batterycharging} alt="batterycharging" className='batterycharging' />
                 I felt  <img src={ok} alt="ok" className='ok' /> before the training session.
             </div>
-        </div>
+        </div >
     ) : (
         <div className="container_wrapper">
             <div className="icon_wrapper">

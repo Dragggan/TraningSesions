@@ -39,9 +39,7 @@ export const TraningSesionsTable: FC = () => {
         setSesions(filteredArray)
     }
 
-    const params = useParams()
     const navigate = useNavigate()
-
 
     if (!sesions.length) {
         if (!err) {

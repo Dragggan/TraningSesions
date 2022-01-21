@@ -1,6 +1,16 @@
 .container_wrapper {
   background-color: #365314;
-  height: 10vw;
+  height: 16vw;
+}
+.midle_section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0 0 100px;
+}
+.details_type {
+  text-transform: capitalize;
+  color: #a3e635;
 }
 .icon_wrapper {
   display: flex;
@@ -8,7 +18,7 @@
   align-items: center;
 }
 .volleyball {
-  width: 8%;
+  width: 12%;
   position: absolute;
   right: -21px;
   top: -24px;
@@ -17,6 +27,7 @@
   width: 4%;
   position: absolute;
   top: 44px;
+  cursor: pointer;
 }
 .batterycharging {
   position: relative;
@@ -25,4 +36,8 @@
 }
 .ok {
   width: 1.4em;
+}
+.time {
+  color: #a3e635;
+  margin: 3px 0;
 }
