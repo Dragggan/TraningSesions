@@ -29,19 +29,30 @@ export const TraningSesionsTable: FC = () => {
     else {
         return (
             <>
+                <h1>Training sessions</h1>
                 <table className="seasion_table">
                     <thead>
                         <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3 Level</th>
-
+                            <th>Type</th>
+                            <th>Duration</th>
+                            <th>Rest Level</th>
+                            <th>intensity Level</th>
+                            <th>Favorite</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>11</td></tr>
-                        <tr><td>22</td></tr>
-                        <tr><td>33</td></tr>
+                        {sesions.map(row => {
+                            return (
+                                <tr key={row.id}>
+                                    <td className='type'>{row.type}</td>
+                                    <td>{row.duration}</td>
+                                    <td>{row.restLevel}</td>
+                                    <td>{row.type === 'training' ? row.intensityLevel : 'no data'}</td>
+
+                                </tr>
+
+                            )
+                        })}
                     </tbody>
                 </table>
             </>
